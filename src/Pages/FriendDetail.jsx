@@ -5,10 +5,12 @@ import { AlarmClock } from 'lucide-react';
 import { Trash2 } from 'lucide-react';
 import { Archive } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { useTimeline } from '../Context/TimelineContext';
 
 const FriendDetail = () => {
   const { id } = useParams()
   const friend = friendsData.find(f => f.id === parseInt(id))
+  const { addEntry } = useTimeline()
 
 
 
@@ -81,19 +83,24 @@ return (
         <div className="bg-white rounded-xl p-6">
           <h3 className="font-semibold mb-4">Quick Check-In</h3>
           <div className="grid grid-cols-3 gap-4">
-            <button onClick={() => toast.success(`📞 0Calling ${friend.name}`)} className="border rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-gray-50">
-              <Phone size={24} />
-              <span className="text-sm">Call</span>
-            </button>
-            <button className="border rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-gray-50">
-              <MessageSquare size={24} />
-              <span className="text-sm">Text</span>
-            </button>
-            <button className="border rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-gray-50">
-              <Video size={24} />
-              <span className="text-sm">Video</span>
-            </button>
-          </div>
+            <button onClick={() => { addEntry('Call', friend.name); toast.success(`📞 Called ${friend.name}`) }}
+            className="border rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-gray-50">
+            <Phone size={24} />
+            <span className="text-sm">Call</span>
+          </button>
+
+          <button onClick={() => { addEntry('Text', friend.name); toast.success(`💬 Texted ${friend.name}`) }}
+            className="border rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-gray-50">
+            <MessageSquare size={24} />
+            <span className="text-sm">Text</span>
+          </button>
+
+          <button onClick={() => { addEntry('Video', friend.name); toast.success(`🎥 Video called ${friend.name}`) }}
+            className="border rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-gray-50">
+            <Video size={24} />
+            <span className="text-sm">Video</span>
+          </button>
+                    </div>
         </div>
 
       </div>

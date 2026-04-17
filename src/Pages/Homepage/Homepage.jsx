@@ -14,10 +14,10 @@ const Homepage = () => {
     setTimeout(() => {
       setFriends(friendsData)
       setLoading(false)
-    }, 1500)
+    }, 500)
   }, [])
 
-  if (loading) return <div className="flex justify-center p-20">Loading...</div>
+  if (loading) return <div className="flex justify-center p-20"><span className="loading loading-dots loading-lg"></span></div>
 
   return (
     <div className="p-10">

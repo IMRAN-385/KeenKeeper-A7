@@ -1,19 +1,15 @@
 import { Component, StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import App from './App.jsx';
 import { RouterProvider } from 'react-router/dom';
-import { createBrowserRouter} from "react-router";
+import { createBrowserRouter } from "react-router";
 import Rootlayout from "./layouts/Rootlayout";
 import Homepage from './Pages/Homepage/Homepage.jsx';
-import Friends from './Pages/FriendDetail.jsx';
+import FriendDetail from './Pages/FriendDetail.jsx';
 import Timeline from './Pages/Timeline.jsx';
 import Stats from './Pages/Stats.jsx';
-import FriendDetail from './Pages/FriendDetail.jsx'
 import { Toaster } from 'react-hot-toast';
-
-
-
+import { TimelineProvider } from './Context/TimelineContext';
 
 const router = createBrowserRouter([
   {
@@ -23,10 +19,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Homepage/>,
-      },
-      {
-        path: "friends",
-        element: <Friends/>,
       },
       {
         path: "friends/:id",
@@ -39,20 +31,17 @@ const router = createBrowserRouter([
       {
         path: "stats",
         element: <Stats/>,
-
       },
     ],
-    errorElement : <h2>mara khaw</h2>
+    errorElement: <h2>404 - Page Not Found</h2>
   },
-]
-);
-
-
+]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <TimelineProvider>
       <RouterProvider router={router} />
       <Toaster position="top-right" />
-
+    </TimelineProvider>
   </StrictMode>,
 )
