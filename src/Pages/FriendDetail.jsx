@@ -18,10 +18,10 @@ return (
   <div className="p-10 bg-gray-100 min-h-screen">
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-      {/* Left Column */}
+    
       <div className="flex flex-col gap-4">
 
-        {/* Profile Card */}
+      
         <div className="bg-white rounded-xl p-6 flex flex-col items-center text-center gap-2">
           <img src={friend.picture} alt={friend.name}
             className="w-20 h-20 rounded-full object-cover" />
@@ -40,7 +40,7 @@ return (
           <p className="text-gray-400 text-sm">Preferred: email</p>
         </div>
 
-        {/* Action Buttons */}
+       
         <div className="bg-white rounded-xl flex flex-col  m-1">
           <button className=" flex gap-3 p-4 text-left text-sm shadow p-2 my-2"> <AlarmClock /> Snooze 2 Weeks</button>
           <button className=" flex gap-3 p-4 text-left text-sm shadow p-2 my-2
@@ -49,10 +49,9 @@ return (
         </div>
       </div>
 
-      {/* Right Column */}
       <div className="lg:col-span-2 flex flex-col gap-4">
 
-        {/* Stat Cards */}
+       
         <div className="grid grid-cols-3 gap-4">
           <div className="bg-white rounded-xl p-4 text-center">
             <h3 className="text-3xl font-bold">{friend.days_since_contact}</h3>
@@ -68,7 +67,7 @@ return (
           </div>
         </div>
 
-        {/* Relationship Goal */}
+        
         <div className="bg-white rounded-xl p-6">
           <div className="flex justify-between items-center mb-2">
             <h3 className="font-semibold">Relationship Goal</h3>
